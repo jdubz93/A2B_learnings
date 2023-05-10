@@ -11,12 +11,12 @@ An A2B data frame typically has the following structure:
 - Control: The control field contains information used to manage the A2B bus, such as frame type, error checking, or other control signals. This field may also include information about the audio sample format, sample rate, or other audio-specific parameters.
 - Data: The data field contains the actual audio data transmitted between the devices. In a TDM protocol like A2B, the data field is subdivided into multiple time slots, each carrying data for one audio channel.
 
+\newpage
+
 Here's an example of an A2B data frame with TDM8 configuration, 16-bit word length, and 32-bit frame length:
 
 - Word Length: Word length refers to the number of bits used to represent an audio sample. Common word lengths are 16-bit, 24-bit, and 32-bit. The word length determines the resolution of the audio.
 - Frame Length: Frame length, also known as the frame size, refers to the number of bits in a complete audio frame. In a TDM system, a frame consists of multiple audio channels (e.g., TDM8 has 8 channels) with one audio sample per channel.
-
-\newpage
 
 ``` bash
 
@@ -33,6 +33,8 @@ Here's an example of an A2B data frame with TDM8 configuration, 16-bit word leng
     - Word length for each channel is 16 bits. 
     - Each frame has a total length of 32 bits, so there will be padding in each channel slot to fill the remaining 16 bits. 
         - The padding can be either zeros or ones, depending on the specific implementation.
+
+\newpage
 
 ## Sigma Studio Configuration:
 
