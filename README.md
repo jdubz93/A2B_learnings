@@ -37,34 +37,36 @@ Here's an example of an A2B data frame with TDM8 configuration, 16-bit word leng
     - Each frame has a total length of 32 bits, so there will be padding in each channel slot to fill the remaining 16 bits. 
         - The padding can be either zeros or ones, depending on the specific implementation.
 
-### Sigma Studio Configuration:
+## Sigma Studio Configuration:
 
-#### A2B Main Node:
----
-    - Sync Mode: 50% Duty Cycle
-    - Sync Polarity: Rising Edge
-    - DRXn Sampling BCLK: Rising Edge
-    - DTXn Change BCLK: Falling Edge
-    - TDM Channel Size: 16-bit
-    - TDM Mode: TDM8
-    - Sync: Enabled
-    - Early Sync: Disabled (Depends on the TDF8534 or other amplifier)
-        - When "Early Sync" is enabled, the frame sync signal's rising or falling edge (depending on the sync polarity setting) will be aligned with the first bit clock edge of the TDM frame. This means that the frame sync signal and the bit clock will change simultaneously at the start of the frame.
-        - When "Early Sync" is disabled, the frame sync signal's edge will occur one bit clock cycle before the first bit clock edge of the TDM frame. This setting provides a one-bit clock delay between the frame sync signal and the start of the frame's data.
-    - Rx Interleave: Enabled
-    - Tx Interleave: Enabled
+A2B Main Node:
 
-#### A2B Sub Node:
----
-    - Sync Mode: 50% Duty Cycle
-    - Sync Polarity: Rising Edge
-    - DRXn Sampling BCLK: Rising Edge
-    - DTXn Change BCLK: Falling Edge
-    - TDM Channel Size: 16-bit
-    - TDM Mode: TDM8
-    - Sync: Enabled
-    - Early Sync: Disabled (Depends)
-    - Rx Interleave: Enabled
-    - Tx Interleave: Enabled
+- Sync Mode: 50% Duty Cycle
+    - Pulse Sync Mode: In this mode, the Frame Sync (FS) signal is a short pulse that occurs once per audio frame. The pulse indicates the start of a new frame, and the audio data for each channel is transmitted sequentially following the pulse. This mode is used in I2S interfaces.
+    - 50% Duty Cycle Sync Mode: In this mode, the Frame Sync (FS) signal has a 50% duty cycle, meaning that it remains high for half of the frame duration and low for the other half. The rising or falling edge of the FS signal indicates the start of a new frame. This mode is used in TDM interfaces.
+- Sync Polarity: Rising Edge
+- DRXn Sampling BCLK: Rising Edge
+- DTXn Change BCLK: Falling Edge
+- TDM Channel Size: 16-bit
+- TDM Mode: TDM8
+- Sync: Enabled
+- Early Sync: Disabled (Depends on the TDF8534 or other amplifier)
+    - When "Early Sync" is enabled, the frame sync signal's rising or falling edge (depending on the sync polarity setting) will be aligned with the first bit clock edge of the TDM frame. This means that the frame sync signal and the bit clock will change simultaneously at the start of the frame.
+    - When "Early Sync" is disabled, the frame sync signal's edge will occur one bit clock cycle before the first bit clock edge of the TDM frame. This setting provides a one-bit clock delay between the frame sync signal and the start of the frame's data.
+- Rx Interleave: Enabled
+- Tx Interleave: Enabled
+
+A2B Sub Node:
+
+- Sync Mode: 50% Duty Cycle
+- Sync Polarity: Rising Edge
+- DRXn Sampling BCLK: Rising Edge
+- DTXn Change BCLK: Falling Edge
+- TDM Channel Size: 16-bit
+- TDM Mode: TDM8
+- Sync: Enabled
+- Early Sync: Disabled (Depends)
+- Rx Interleave: Enabled
+- Tx Interleave: Enabled
 
 
