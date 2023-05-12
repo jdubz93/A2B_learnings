@@ -31,8 +31,7 @@ Here's an example of an A2B data frame with TDM8 configuration, 16-bit word leng
 - Ch1 - Ch8: represent the 16-bit audio data samples for each of the 8 channels. 
     - Each data frame has 8 channels (TDM8), 
     - Word length for each channel is 16 bits. 
-    - Each frame has a total length of 32 bits, so there will be padding in each channel slot to fill the remaining 16 bits. 
-        - The padding can be either zeros or ones, depending on the specific implementation.
+    - Each frame has a total length of 128 bits. 
 
 \newpage
 
