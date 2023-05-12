@@ -48,7 +48,7 @@ A2B Main Node:
 - TDM Channel Size: 16-bit
 - TDM Mode: TDM8
 - Sync: Enabled
-- Early Sync: Disabled (Depends on the TDF8534 or other amplifier)
+- Early Sync: Disabled (Depends on the amplifier)
     - When "Early Sync" is enabled, the frame sync signal's rising or falling edge (depending on the sync polarity setting) will be aligned with the first bit clock edge of the TDM frame. This means that the frame sync signal and the bit clock will change simultaneously at the start of the frame.
     - When "Early Sync" is disabled, the frame sync signal's edge will occur one bit clock cycle before the first bit clock edge of the TDM frame. This setting provides a one-bit clock delay between the frame sync signal and the start of the frame's data.
 - Rx Interleave: Enabled
